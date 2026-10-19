@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button Content="Click" HorizontalAlignment="Center" Margin="0,112,0,122" Width="200" Height="200" RenderTransformOrigin="0.6,1.791" Click="Clicker_Button"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="695,54,0,0" VerticalAlignment="Top" Height="50" Click="Powerup_Speed"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="695,112,0,0" VerticalAlignment="Top" Height="50" Click="Powerup_DoubleClick"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="695,187,0,0" VerticalAlignment="Top" Height="50" Click="Upgrade_AutoClick"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="695,242,0,0" VerticalAlignment="Top" Height="50" Click="Upgrade_IncreaseClick"/>
 
     </Grid>
 </Window>

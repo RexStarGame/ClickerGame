@@ -20,5 +20,30 @@ namespace ClickerGame
         {
             InitializeComponent();
         }
+
+        private void Clicker_Button(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Powerup_Speed(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Powerup_DoubleClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Upgrade_AutoClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Upgrade_IncreaseClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
