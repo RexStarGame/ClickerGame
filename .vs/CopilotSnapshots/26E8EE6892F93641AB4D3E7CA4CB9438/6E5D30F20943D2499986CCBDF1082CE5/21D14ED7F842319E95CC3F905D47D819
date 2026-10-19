@@ -1,0 +1,18 @@
+﻿<Window x:Class="ClickerGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClickerGame"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Click" RenderTransformOrigin="0.6,1.791" Click="Clicker_Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="NaN" Background="White" BorderBrush="White"/>
+        <Button Content="Powerup Speed" HorizontalAlignment="Left" Margin="620,64,0,0" VerticalAlignment="Top" Height="50" Click="Powerup_Speed" Width="150"/>
+        <Button Content="Powerup Double Click" HorizontalAlignment="Left" Margin="620,154,0,0" VerticalAlignment="Top" Height="50" Click="Powerup_DoubleClick" Width="150"/>
+        <Button Content="Upgrade AutoClick" HorizontalAlignment="Left" Margin="620,244,0,0" VerticalAlignment="Top" Height="50" Click="Upgrade_AutoClick" Width="150"/>
+        <Button Content="Upgrade IncreaseClick" HorizontalAlignment="Left" Margin="620,334,0,0" VerticalAlignment="Top" Height="50" Click="Upgrade_IncreaseClick" Width="150"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,24,0,0" Text="1.000.000" VerticalAlignment="Top" Height="40" Width="160" TextChanged="TextBox_TextChanged" BorderBrush="Black" TextWrapping="Wrap" FontSize="26" TextAlignment="Center"/>
+
+    </Grid>
+</Window>

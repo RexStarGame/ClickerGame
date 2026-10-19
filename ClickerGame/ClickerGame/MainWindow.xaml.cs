@@ -45,5 +45,10 @@ namespace ClickerGame
         {
 
         }
+
+        private void Currency(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
