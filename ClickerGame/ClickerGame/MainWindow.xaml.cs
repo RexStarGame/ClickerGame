@@ -11,19 +11,21 @@ using System.Windows.Shapes;
 
 namespace ClickerGame
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private Game game = new Game();
+
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
-        private void Clicker_Button(object sender, RoutedEventArgs e)
+        private void Clicker_Area(object sender, RoutedEventArgs e)
         {
+            game.Click();
 
+            CurrencyText.Text = game.Currency.ToString();
         }
 
         private void Powerup_Speed(object sender, RoutedEventArgs e)
@@ -42,11 +44,6 @@ namespace ClickerGame
         }
 
         private void Upgrade_IncreaseClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Currency(object sender, TextChangedEventArgs e)
         {
 
         }

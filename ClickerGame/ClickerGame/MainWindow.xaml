@@ -5,14 +5,108 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClickerGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Clicker Game"
+        Height="450"
+        Width="800"
+        MinHeight="350"
+        MinWidth="600">
+
+    <Window.Resources>
+        <Style x:Key="ClickerButtonStyle"
+               TargetType="Button">
+
+            <Setter Property="FocusVisualStyle"
+                    Value="{x:Null}"/>
+
+            <Setter Property="Background"
+                    Value="Transparent"/>
+
+            <Setter Property="BorderThickness"
+                    Value="0"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+
+                        <Border Background="{TemplateBinding Background}"
+                                BorderThickness="0">
+
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+    </Window.Resources>
+
     <Grid>
-        <Button Content="Click" RenderTransformOrigin="0.6,1.791" Click="Clicker_Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="NaN" Background="White" BorderBrush="{x:Null}"/>
-        <Button Content="Powerup Speed" HorizontalAlignment="Left" Margin="620,64,0,0" VerticalAlignment="Top" Height="50" Click="Powerup_Speed" Width="150"/>
-        <Button Content="Powerup Double Click" HorizontalAlignment="Left" Margin="620,154,0,0" VerticalAlignment="Top" Height="50" Click="Powerup_DoubleClick" Width="150"/>
-        <Button Content="Upgrade AutoClick" HorizontalAlignment="Left" Margin="620,244,0,0" VerticalAlignment="Top" Height="50" Click="Upgrade_AutoClick" Width="150"/>
-        <Button Content="Upgrade IncreaseClick" HorizontalAlignment="Left" Margin="620,334,0,0" VerticalAlignment="Top" Height="50" Click="Upgrade_IncreaseClick" Width="150"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,24,0,0" Text="1.000.000" VerticalAlignment="Top" Height="40" Width="160" TextChanged="Currency" BorderBrush="Black" TextWrapping="Wrap" FontSize="26" TextAlignment="Center"/>
+
+        <!-- Clicker Area -->
+        <Button Content="Click"
+                Click="Clicker_Area"
+                Background="White"
+                BorderBrush="{x:Null}"
+                Focusable="False"
+                Style="{StaticResource ClickerButtonStyle}"/>
+
+        <!-- Currency -->
+        <Border 
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top"
+        Margin="0,20,0,0"
+        Padding="20,8"
+        Width="150"
+        Background="White"
+        BorderBrush="Black"
+        BorderThickness="0.5"
+        CornerRadius="10">
+
+            <TextBlock x:Name="CurrencyText"
+               Text="Start Clicking"
+               FontSize="19"
+               FontWeight="Normal"
+               TextAlignment="Center"
+               IsHitTestVisible="False"/>
+
+        </Border>
+
+        <!-- Powerups and Upgrades -->
+        <StackPanel HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Width="180"
+                    Margin="0,50,20,0">
+
+            <Button Content="Powerup Speed"
+                    Height="50"
+                    Margin="0,0,0,20"
+                    Focusable="False"
+                    Click="Powerup_Speed"/>
+
+            <Button Content="Powerup Double Click"
+                    Height="50"
+                    Margin="0,0,0,20"
+                    Focusable="False"
+                    Click="Powerup_DoubleClick"/>
+
+            <Button Content="Upgrade AutoClick"
+                    Height="50"
+                    Margin="0,0,0,20"
+                    Focusable="False"
+                    Click="Upgrade_AutoClick"/>
+
+            <Button Content="Upgrade IncreaseClick"
+                    Height="50"
+                    Focusable="False"
+                    Click="Upgrade_IncreaseClick"/>
+
+        </StackPanel>
 
     </Grid>
+
 </Window>
