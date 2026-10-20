@@ -14,5 +14,15 @@ namespace ClickerGame
         {
             TotalClicks += ClickValue;
         }
+
+        public bool BuyUpgrade(Upgrades upgrade)
+        {
+            if (TotalClicks >= upgrade.UpgradeCost)
+            {
+                TotalClicks -= upgrade.UpgradeCost;
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -68,11 +68,10 @@
         CornerRadius="10">
 
             <TextBlock x:Name="TotalClicks"
-               Text="Start Clicking"
-               FontSize="19"
-               FontWeight="Normal"
-               TextAlignment="Center"
-               IsHitTestVisible="False"/>
+                       FontSize="19"
+                       FontWeight="Normal"
+                       TextAlignment="Center"
+                       IsHitTestVisible="False"/>
 
         </Border>
 
@@ -94,7 +93,8 @@
                     Focusable="False"
                     Click="Powerup_DoubleClick"/>
 
-            <Button Content="Upgrade AutoClick"
+            <Button x:Name="AutoClickButton"
+                    Content="Upgrade AutoClick"
                     Height="50"
                     Margin="0,0,0,20"
                     Focusable="False"
@@ -106,8 +106,7 @@
                     Click="Upgrade_IncreaseClick"/>
 
         </StackPanel>
-        <Image HorizontalAlignment="Left" Height="21" Margin="475,62,0,0" VerticalAlignment="Top" Source="/cursor-png-1113.png" Width="15"/>
-
+        
     </Grid>
 
 </Window>

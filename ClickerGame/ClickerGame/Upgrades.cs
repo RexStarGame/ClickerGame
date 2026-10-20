@@ -4,9 +4,9 @@ using System.Text;
 
 namespace ClickerGame
 {
-    internal class Upgrades
+    public class Upgrades
     {
-        protected int UpgradeCost { get; set; }
+        public int UpgradeCost { get; set; }
 
         public Upgrades(int cost)
         {
