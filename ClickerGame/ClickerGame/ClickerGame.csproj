@@ -8,4 +8,11 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>    <None Remove="cursor-png-1113.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="cursor-png-1113.png" />
+  </ItemGroup>
+
 </Project>

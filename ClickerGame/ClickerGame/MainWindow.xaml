@@ -67,7 +67,7 @@
         BorderThickness="0.5"
         CornerRadius="10">
 
-            <TextBlock x:Name="CurrencyText"
+            <TextBlock x:Name="TotalClicks"
                Text="Start Clicking"
                FontSize="19"
                FontWeight="Normal"
@@ -78,9 +78,9 @@
 
         <!-- Powerups and Upgrades -->
         <StackPanel HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
+                    VerticalAlignment="Center"
                     Width="180"
-                    Margin="0,50,20,0">
+                    Margin="0,0,20,0">
 
             <Button Content="Powerup Speed"
                     Height="50"
@@ -106,6 +106,7 @@
                     Click="Upgrade_IncreaseClick"/>
 
         </StackPanel>
+        <Image HorizontalAlignment="Left" Height="21" Margin="475,62,0,0" VerticalAlignment="Top" Source="/cursor-png-1113.png" Width="15"/>
 
     </Grid>
 

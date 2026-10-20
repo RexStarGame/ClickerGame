@@ -25,7 +25,7 @@ namespace ClickerGame
         {
             game.Click();
 
-            CurrencyText.Text = game.Currency.ToString();
+            TotalClicks.Text = game.TotalClicks.ToString();
         }
 
         private void Powerup_Speed(object sender, RoutedEventArgs e)

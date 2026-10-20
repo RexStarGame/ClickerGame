@@ -6,13 +6,13 @@ namespace ClickerGame
 {
     public class Game
     {
-        public int Currency { get; private set; } = 0;
+        public int TotalClicks { get; private set; } = 0;
 
-        public int Clicks { get; private set; } = 1;
+        public int ClickValue { get; private set; } = 1;
 
         public void Click()
         {
-            Currency += Clicks;
+            TotalClicks += ClickValue;
         }
     }
 }
