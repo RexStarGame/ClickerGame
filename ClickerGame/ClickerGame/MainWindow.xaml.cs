@@ -18,6 +18,7 @@ namespace ClickerGame
         private AutoClick autoClick = new AutoClick();
         private AutoClickX2 autoClickX2 = new AutoClickX2();
         private DispatcherTimer displayTimer = new DispatcherTimer();
+        private DispatcherTimer powerupTimer = new DispatcherTimer();
 
         public MainWindow()
         {
@@ -36,29 +37,38 @@ namespace ClickerGame
 
             displayTimer.Start();
 
+            powerupTimer.Interval = autoClickX2.Duration;
+
+            powerupTimer.Tick += (sender, e) =>
+            {
+                autoClick.SetSpeed(1);
+                AutoClickX2Button.IsEnabled = true;
+                powerupTimer.Stop();
+            };
+
         }
 
         private void Clicker_Area(object sender, RoutedEventArgs e)
         {
             game.Click();
-
-            TotalClicks.Text = game.TotalClicks.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("da-DK"));
         }
 
         private void Powerup_AutoClickX2(object sender, RoutedEventArgs e)
         {
-            bool success = game.BuyPowerup(autoClickX2);
-            if (success)
+            if (!autoClick.IsPurchased)
             {
-                autoClickX2.ActivateAutoClickX2(game, autoClick);
-                TotalClicks.Text = game.TotalClicks.ToString();
-                AutoClickX2Button.IsEnabled = false;
+                MessageBox.Show("You must buy AutoClick first!");
+            }
+            else if (!game.BuyPowerup(autoClickX2))
+            {
+                MessageBox.Show("You don't have enough Clicks!");
             }
             else
             {
-                MessageBox.Show("You don't have enough clicks!");
+                autoClickX2.ActivateAutoClickX2(game, autoClick);
+                AutoClickX2Button.IsEnabled = false;
+                powerupTimer.Start();
             }
-
         }
 
         private void Powerup_DoubleClick(object sender, RoutedEventArgs e)
@@ -68,18 +78,15 @@ namespace ClickerGame
 
         private void Upgrade_AutoClick(object sender, RoutedEventArgs e)
         {
-            bool success = game.BuyUpgrade(autoClick);
-            if (success)
+            if (!game.BuyUpgrade(autoClick))
             {
-                autoClick.ActivateAutoClick(game);
-                TotalClicks.Text = game.TotalClicks.ToString();
-                AutoClickButton.IsEnabled = false;
+                MessageBox.Show("You don't have enough Clicks!");
             }
             else
             {
-                MessageBox.Show("You don't have enough clicks!");
+                autoClick.ActivateAutoClick(game);
+                AutoClickButton.IsEnabled = false;
             }
-
         }
 
         private void Upgrade_IncreaseClick(object sender, RoutedEventArgs e)
