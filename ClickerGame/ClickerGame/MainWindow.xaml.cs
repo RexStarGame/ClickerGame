@@ -16,6 +16,7 @@ namespace ClickerGame
     {
         private Game game = new Game();
         private AutoClick autoClick = new AutoClick();
+        private AutoClickX2 autoClickX2 = new AutoClickX2();
         private DispatcherTimer displayTimer = new DispatcherTimer();
 
         public MainWindow()
@@ -23,6 +24,8 @@ namespace ClickerGame
             InitializeComponent();
 
             AutoClickButton.Content = $"Upgrade: AutoClick\nPrice: {autoClick.UpgradeCost.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("da-DK"))} Clicks";
+
+            AutoClickX2Button.Content = $"Powerup: AutoClickX2\nPrice: {autoClickX2.PowerupCost.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("da-DK"))} Clicks";
             
             displayTimer.Interval = TimeSpan.FromSeconds(0.1);
 
@@ -42,8 +45,19 @@ namespace ClickerGame
             TotalClicks.Text = game.TotalClicks.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("da-DK"));
         }
 
-        private void Powerup_Speed(object sender, RoutedEventArgs e)
+        private void Powerup_AutoClickX2(object sender, RoutedEventArgs e)
         {
+            bool success = game.BuyPowerup(autoClickX2);
+            if (success)
+            {
+                autoClickX2.ActivateAutoClickX2(game, autoClick);
+                TotalClicks.Text = game.TotalClicks.ToString();
+                AutoClickX2Button.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("You don't have enough clicks!");
+            }
 
         }
 

@@ -81,11 +81,12 @@
                     Width="180"
                     Margin="0,0,20,0">
 
-            <Button Content="Powerup Speed"
+            <Button x:Name="AutoClickX2Button"
+                    Content="Powerup AutoClickX2"
                     Height="50"
                     Margin="0,0,0,20"
                     Focusable="False"
-                    Click="Powerup_Speed"/>
+                    Click="Powerup_AutoClickX2"/>
 
             <Button Content="Powerup Double Click"
                     Height="50"

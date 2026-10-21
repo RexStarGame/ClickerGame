@@ -24,5 +24,15 @@ namespace ClickerGame
             }
             return false;
         }
+
+        public bool BuyPowerup(Powerups powerup)
+        {
+            if (TotalClicks >= powerup.PowerupCost)
+            {
+                TotalClicks -= powerup.PowerupCost;
+                return true;
+            }
+            return false;
+        }
     }
 }

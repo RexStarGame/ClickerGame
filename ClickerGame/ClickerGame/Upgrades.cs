@@ -6,7 +6,7 @@ namespace ClickerGame
 {
     public class Upgrades
     {
-        public int UpgradeCost { get; set; }
+        public int UpgradeCost { get; private set; }
 
         public Upgrades(int cost)
         {

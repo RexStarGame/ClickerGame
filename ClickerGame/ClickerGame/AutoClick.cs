@@ -9,10 +9,11 @@ namespace ClickerGame
     {
         private DispatcherTimer timer;
         public bool IsPurchased { get; private set; } = false; 
-        public AutoClick() : base(1000)
-        {
 
+        public AutoClick() : base(10)
+        {
         }
+
         public void ActivateAutoClick(Game game)
         {
             if (timer != null)
@@ -31,6 +32,16 @@ namespace ClickerGame
             };
 
             timer.Start();
+        }
+
+        public void SetSpeed(double seconds)
+        {
+            if (timer == null)
+            {
+                return;
+            }
+
+            timer.Interval = TimeSpan.FromSeconds(seconds);
         }
     }
 }
