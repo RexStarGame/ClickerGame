@@ -13,7 +13,7 @@
         <Button Content="Button" HorizontalAlignment="Left" Margin="695,187,0,0" VerticalAlignment="Top" Height="50" Click="Upgrade_AutoClick"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="695,242,0,0" VerticalAlignment="Top" Height="50" Click="Upgrade_IncreaseClick"/>
         <TextBlock x:Name="TotalCookiesText" TextWrapping="Wrap" Text="TextBlock" Margin="300,30,300,355"/>
-        <Canvas x:Name="FloatingTextCanvas" Width="200" Height="150" IsHitTestVisible="False"/>
+        <Canvas x:Name="MovingTextCanvas" Width="200" Height="150" IsHitTestVisible="False"/>
         
 
     </Grid>

@@ -32,10 +32,10 @@ namespace ClickerGame
             classClicker.AddClicks(); 
             TotalCookiesText.Text = classClicker.ClicksCurrency.ToString();
 
-            FloatingText();
+            MovingText();
         }
 
-        private void FloatingText()
+        private void MovingText()
         {
             TextBlock earnedCurrencyText = new TextBlock
             {
@@ -43,7 +43,7 @@ namespace ClickerGame
                 FontSize = 20
             };
 
-            FloatingTextCanvas.Children.Add(earnedCurrencyText);
+            MovingTextCanvas.Children.Add(earnedCurrencyText);
 
             Canvas.SetLeft(earnedCurrencyText, 80);
             Canvas.SetTop(earnedCurrencyText, 100);
@@ -54,7 +54,7 @@ namespace ClickerGame
             earnedCurrencyText.BeginAnimation(Canvas.TopProperty, move);
             earnedCurrencyText.BeginAnimation(UIElement.OpacityProperty, fade);
 
-            fade.Completed += (s, e) => FloatingTextCanvas.Children.Remove(earnedCurrencyText);
+            fade.Completed += (s, e) => MovingTextCanvas.Children.Remove(earnedCurrencyText);
         }
 
         private void Powerup_Speed(object sender, RoutedEventArgs e)
