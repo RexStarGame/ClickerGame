@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:ClickerGame"
         mc:Ignorable="d"
         Title="Clicker Game"
-        Height="450"
-        Width="800"
+        Height="685"
+        Width="1076"
         MinHeight="350"
         MinWidth="600">
 
@@ -60,14 +60,14 @@
         VerticalAlignment="Top"
         Margin="0,20,0,0"
         Padding="20,8"
-        Width="150"
+        Width="auto"
         Background="White"
         BorderBrush="Black"
         BorderThickness="0.5"
         CornerRadius="10">
 
             <TextBlock x:Name="TotalClicks"
-                       FontSize="19"
+                       FontSize="30"
                        FontWeight="Normal"
                        TextAlignment="Center"
                        IsHitTestVisible="False"/>
@@ -87,12 +87,6 @@
                     Focusable="False"
                     Click="Powerup_AutoClickX2"/>
 
-            <Button Content="Powerup Double Click"
-                    Height="50"
-                    Margin="0,0,0,20"
-                    Focusable="False"
-                    Click="Powerup_DoubleClick"/>
-
             <Button x:Name="AutoClickButton"
                     Content="Upgrade AutoClick"
                     Height="50"
@@ -100,16 +94,21 @@
                     Focusable="False"
                     Click="Upgrade_AutoClick"/>
 
-            <Button Content="Button" HorizontalAlignment="Left" Margin="0,0,0,0" Height="50" Click="Upgrade_IncreaseClick" x:Name="UpgradeClickButton" Width="180"/>
-
-
-
-
-
+            <Button x:Name="UpgradeClickButton"
+                    Content="Button" 
+                    HorizontalAlignment="Left" 
+                    Margin="0,0,0,20" Height="50" 
+                    Click="Upgrade_IncreaseClick"                     
+                    Width="180"/>
+            
+            <Button Content="COMING SOON!"
+                    Height="50"
+                    Focusable="False"
+                    Click="Powerup_DoubleClick"/>
 
         </StackPanel>
         <Canvas x:Name="MovingTextCanvas" Width="200" Height="150" IsHitTestVisible="False">
-            <Image Height="250" Canvas.Left="33" Width="200" Source="/cursor-png-1113.png" HorizontalAlignment="Left" Canvas.Top="-50" VerticalAlignment="Top"/>
+            <Image Width="309" Source="/cursor-png-1113.png" HorizontalAlignment="Left" Canvas.Top="135" VerticalAlignment="Top" Height="259" Canvas.Left="100"/>
         </Canvas>
 
     </Grid>

@@ -32,7 +32,7 @@ namespace ClickerGame
         {
             InitializeComponent();
             cancellationToken = cancellationTokenSource.Token;
-            UpgradeClickButton.Content = $"Upgrade: {classClickPower.UpgradePrice} Clicks";
+            UpgradeClickButton.Content = $"Upgrade: Increase Clicks\nPrice: {classClickPower.UpgradePrice.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("da-DK"))} Clicks";
 
             AutoClickButton.Content = $"Upgrade: AutoClick\nPrice: {autoClick.UpgradeCost.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("da-DK"))} Clicks";
 
@@ -42,7 +42,7 @@ namespace ClickerGame
 
             displayTimer.Tick += (sender, e) =>
             {
-                TotalClicks.Text = classClicker.ClicksCurrency.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("da-DK"));
+                TotalClicks.Text = classClicker.ClicksCurrency.ToString("0.0");
             };
 
             displayTimer.Start();
@@ -62,7 +62,7 @@ namespace ClickerGame
             TextBlock earnedCurrencyText = new TextBlock
             {
                 Text = $"+{1 + classClickPower.ClickPowerUp:0.##}",
-                FontSize = 20
+                FontSize = 30
             };
 
             MovingTextCanvas.Children.Add(earnedCurrencyText);
@@ -82,8 +82,6 @@ namespace ClickerGame
         public void Clicker_Area(object sender, RoutedEventArgs e)
         {
             classClicker.AddClicks(classClickPower.ClickPowerUp);
-            TotalClicks.Text = classClicker.ClicksCurrency.ToString();
-
             MovingText();
         }
 
@@ -115,7 +113,7 @@ namespace ClickerGame
         private void Upgrade_AutoClick(object sender, RoutedEventArgs e)
         {
            
-            if (classClicker.ClicksCurrency <= autoClick.UpgradeCost)
+            if (classClicker.ClicksCurrency < autoClick.UpgradeCost)
             {
                 MessageBox.Show("You don't have enough Clicks!");
                
@@ -133,7 +131,6 @@ namespace ClickerGame
             {
                 classClicker.ClicksCurrency -= classClickPower.UpgradePrice;
                 classClickPower.UpgradeClicks();
-                TotalClicks.Text = classClicker.ClicksCurrency.ToString("0.##");
           
                 if(classClickPower.UpgradeCountClicks >= 50)
                 {
@@ -147,7 +144,7 @@ namespace ClickerGame
                 {
                     classClickPower.UpgradePrice += 10;
                 }
-                UpgradeClickButton.Content = $"Upgrade: {classClickPower.UpgradePrice} Clicks";
+            UpgradeClickButton.Content = $"Upgrade: Increase Clicks\nPrice: {classClickPower.UpgradePrice.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("da-DK"))} Clicks";
 
                 // kunne bruge en switch expression istedet til dette vis det skulle se pænere ud.. men  jeg skal lige læse lidt videre på det.
             }

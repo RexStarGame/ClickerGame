@@ -7,7 +7,7 @@ namespace ClickerGame
     internal class AutoClickX2 : Powerups
     {
         
-        public AutoClickX2() : base(100)
+        public AutoClickX2() : base(500)
         {
 
         }
@@ -15,7 +15,7 @@ namespace ClickerGame
         // This method activates the AutoClickX2 powerup
         public void ActivateAutoClickX2(AutoClick autoClick)
         {
-            autoClick.SetSpeed(0.1);
+            autoClick.SetSpeed(0.01);
         }
     }
 }

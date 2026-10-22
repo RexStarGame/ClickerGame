@@ -14,7 +14,7 @@ namespace ClickerGame
         private DispatcherTimer timer;
         public bool IsPurchased { get; private set; } = false;
        
-        public AutoClick() : base(10)
+        public AutoClick() : base(1200)
         {
         }
 
