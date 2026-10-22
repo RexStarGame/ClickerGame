@@ -13,7 +13,7 @@ namespace ClickerGame
         public Powerups(int cost)
         {
             PowerupCost = cost;
-            Duration = TimeSpan.FromMinutes(5);
+            Duration = TimeSpan.FromSeconds(5);
         }
     }
 }

@@ -91,23 +91,21 @@ namespace ClickerGame
         {
             if (!autoClick.IsPurchased)
             {
-                MessageBox.Show("You must buy AutoClick first!");        
+                MessageBox.Show("You must buy AutoClick first!");
+                return;
             }
-            if (classClicker.ClicksCurrency <= autoClickX2.PowerupCost && autoClick.IsPurchased)
+            if (classClicker.ClicksCurrency < autoClickX2.PowerupCost && autoClick.IsPurchased)
             {
                 MessageBox.Show("You don't have enough Clicks!");
+                return;
             }
-            else if (classClicker.ClicksCurrency >= autoClickX2.PowerupCost && autoClick.IsPurchased) // ser om du råd til det.
-            {
-                classClicker.ClicksCurrency -= autoClickX2.PowerupCost;
-            }
-            else if (autoClick.IsPurchased)
-            {
-                autoClickX2.ActivateAutoClickX2(autoClick);
-                AutoClickX2Button.IsEnabled = false;
-                powerupTimer.Start();
-            }
-        }
+
+            classClicker.ClicksCurrency -= autoClickX2.PowerupCost;
+
+            autoClickX2.ActivateAutoClickX2(autoClick);
+            AutoClickX2Button.IsEnabled = false;
+            powerupTimer.Start();
+        }  
 
         private void Powerup_DoubleClick(object sender, RoutedEventArgs e)
         {
