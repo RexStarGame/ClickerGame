@@ -97,6 +97,8 @@ namespace ClickerGame
                     classClickPower.UpgradePrice += 10;
                 }
                 UpgradeClickButton.Content = $"Upgrade: {classClickPower.UpgradePrice} Clicks";
+
+                // kunne bruge en switch expression istedet til dette vis det skulle se pænere ud.. men  jeg skal lige læse lidt videre på det.
             }
         }
     }
