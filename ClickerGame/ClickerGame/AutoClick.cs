@@ -28,7 +28,7 @@ namespace ClickerGame
 
             timer.Tick += (sender, e) =>
             {
-                game.Click();
+               // game.Click();
             };
 
             timer.Start();

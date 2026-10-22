@@ -54,6 +54,7 @@
                 BorderBrush="{x:Null}"
                 Focusable="False"
                 Style="{StaticResource ClickerButtonStyle}"/>
+        <Canvas x:Name="MovingTextCanvas" Width="200" Height="150" IsHitTestVisible="False"/>
 
         <!-- Currency -->
         <Border 
@@ -101,10 +102,12 @@
                     Focusable="False"
                     Click="Upgrade_AutoClick"/>
 
-            <Button Content="Upgrade IncreaseClick"
-                    Height="50"
-                    Focusable="False"
-                    Click="Upgrade_IncreaseClick"/>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="0,0,0,0" Height="50" Click="Upgrade_IncreaseClick" x:Name="UpgradeClickButton" Width="180"/>
+
+
+
+
+
 
         </StackPanel>
 

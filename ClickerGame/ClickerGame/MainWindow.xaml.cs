@@ -17,32 +17,28 @@ namespace ClickerGame
     {
         ClassClicker classClicker = new ClassClicker(); // opretter et object af klassen ClassClicker
         ClassClickPower classClickPower = new ClassClickPower();
+
         Random random = new Random();
         CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         CancellationToken cancellationToken;
 
         private bool pressed = false;
-        public MainWindow()
-        {
-            InitializeComponent();
-            cancellationToken = cancellationTokenSource.Token;
-            UpgradeClickButton.Content = $"Upgrade: {classClickPower.UpgradePrice} Clicks";
+        private AutoClick autoClick = new AutoClick();
+        private AutoClickX2 autoClickX2 = new AutoClickX2();
+        private DispatcherTimer displayTimer = new DispatcherTimer();
+        private DispatcherTimer powerupTimer = new DispatcherTimer();
 
-        }
         private void Clicker_Button(object sender, RoutedEventArgs e)
         {
             classClicker.AddClicks(classClickPower.ClickPowerUp);
             TotalClicks.Text = classClicker.ClicksCurrency.ToString();
         }
 
-        private AutoClick autoClick = new AutoClick();
-        private AutoClickX2 autoClickX2 = new AutoClickX2();
-        private DispatcherTimer displayTimer = new DispatcherTimer();
-        private DispatcherTimer powerupTimer = new DispatcherTimer();
-
         public MainWindow()
         {
             InitializeComponent();
+            cancellationToken = cancellationTokenSource.Token;
+            UpgradeClickButton.Content = $"Upgrade: {classClickPower.UpgradePrice} Clicks";
 
             AutoClickButton.Content = $"Upgrade: AutoClick\nPrice: {autoClick.UpgradeCost.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("da-DK"))} Clicks";
 
@@ -52,7 +48,7 @@ namespace ClickerGame
 
             displayTimer.Tick += (sender, e) =>
             {
-                TotalClicks.Text = game.TotalClicks.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("da-DK"));
+                TotalClicks.Text = classClicker.ClicksCurrency.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("da-DK"));
             };
 
             displayTimer.Start();
@@ -93,11 +89,15 @@ namespace ClickerGame
 
         private void Clicker_Area(object sender, RoutedEventArgs e)
         {
-            game.Click();
+            //game.Click();
         }
 
         private void Powerup_AutoClickX2(object sender, RoutedEventArgs e)
         {
+            if(classClicker.ClicksCurrency >= autoClickX2.PowerupCost) // ser om du råd til det.
+            {
+                classClicker.ClicksCurrency -= autoClickX2.PowerupCost;
+                /*
             if (!autoClick.IsPurchased)
             {
                 MessageBox.Show("You must buy AutoClick first!");
@@ -112,6 +112,8 @@ namespace ClickerGame
                 AutoClickX2Button.IsEnabled = false;
                 powerupTimer.Start();
             }
+            */
+            }
         }
 
         private void Powerup_DoubleClick(object sender, RoutedEventArgs e)
@@ -121,6 +123,7 @@ namespace ClickerGame
 
         private void Upgrade_AutoClick(object sender, RoutedEventArgs e)
         {
+            /*
             if (!game.BuyUpgrade(autoClick))
             {
                 MessageBox.Show("You don't have enough Clicks!");
@@ -130,6 +133,7 @@ namespace ClickerGame
                 autoClick.ActivateAutoClick(game);
                 AutoClickButton.IsEnabled = false;
             }
+            */
         }
 
         private void Upgrade_IncreaseClick(object sender, RoutedEventArgs e)
@@ -138,7 +142,7 @@ namespace ClickerGame
             {
                 classClicker.ClicksCurrency -= classClickPower.UpgradePrice;
                 classClickPower.UpgradeClicks();
-                TotalClickText.Text = classClicker.ClicksCurrency.ToString("0.##");
+                TotalClicks.Text = classClicker.ClicksCurrency.ToString("0.##");
           
                 if(classClickPower.UpgradeCountClicks >= 50)
                 {

@@ -1,39 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-/*
+
 namespace ClickerGame
 {
     public class Game
     {
-        public int TotalClicks { get; private set; } = 0;
 
-        public int ClickValue { get; private set; } = 1;
+        public double ClicksCurrency { set; get; }
 
-        public void Click()
+        public void AddClicks(double extraPowerClicks)
         {
-            TotalClicks += ClickValue;
-        }
-
-        public bool BuyUpgrade(Upgrades upgrade)
-        {
-            if (TotalClicks >= upgrade.UpgradeCost)
-            {
-                TotalClicks -= upgrade.UpgradeCost;
-                return true;
-            }
-            return false;
-        }
-
-        public bool BuyPowerup(Powerups powerup)
-        {
-            if (TotalClicks >= powerup.PowerupCost)
-            {
-                TotalClicks -= powerup.PowerupCost;
-                return true;
-            }
-            return false;
+            ClicksCurrency += 1 + extraPowerClicks;
         }
     }
+}
+/*
+public bool BuyUpgrade(Upgrades upgrade)
+{
+    if (TotalClicks >= upgrade.UpgradeCost)
+    {
+        TotalClicks -= upgrade.UpgradeCost;
+        return true;
+    }
+    return false;
+}
+
+public bool BuyPowerup(Powerups powerup)
+{
+    if (TotalClicks >= powerup.PowerupCost)
+    {
+        TotalClicks -= powerup.PowerupCost;
+        return true;
+    }
+    return false;
+}
+}
 }
 */
