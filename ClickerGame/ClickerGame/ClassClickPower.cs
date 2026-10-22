@@ -4,11 +4,13 @@ using System.Text;
 
 namespace ClickerGame
 {
-    public class ClassClickPower
+    public class ClassClickPower : Upgrades
     {
         public double ClickPowerUp {  get; set; }
-        public double UpgradePrice { get; set; } = 2;
         public double UpgradeCountClicks { get; set; }
+        public ClassClickPower() : base(2)
+        {
+        }
         public void UpgradeClicks()
         {
             ClickPowerUp += 0.2;
