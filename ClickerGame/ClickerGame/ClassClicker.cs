@@ -7,11 +7,11 @@ namespace ClickerGame
 {
     internal class ClassClicker
     {
-        public int ClicksCurrency { set; get;  }
+        public double ClicksCurrency { set; get;  }
 
-        public void AddClicks ()
+        public void AddClicks(double extraPowerClicks)
         {
-            ClicksCurrency++;
+            ClicksCurrency += 1 + extraPowerClicks;
         }
     }
 }

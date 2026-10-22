@@ -18,6 +18,8 @@ namespace ClickerGame
     public partial class MainWindow : Window
     {
         ClassClicker classClicker = new ClassClicker(); // opretter et object af klassen ClassClicker
+        ClassClickPower classClickPower = new ClassClickPower();
+        Random random = new Random();
         CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         CancellationToken cancellationToken;
 
@@ -26,11 +28,13 @@ namespace ClickerGame
         {
             InitializeComponent();
             cancellationToken = cancellationTokenSource.Token;
+            UpgradeClickButton.Content = $"Upgrade: {classClickPower.UpgradePrice} Clicks";
+
         }
         private void Clicker_Button(object sender, RoutedEventArgs e)
         {
-            classClicker.AddClicks(); 
-            TotalCookiesText.Text = classClicker.ClicksCurrency.ToString();
+            classClicker.AddClicks(classClickPower.ClickPowerUp);
+            TotalClickText.Text = classClicker.ClicksCurrency.ToString();
 
             MovingText();
         }
@@ -39,7 +43,7 @@ namespace ClickerGame
         {
             TextBlock earnedCurrencyText = new TextBlock
             {
-                Text = "+1",
+                Text = $"+{1 + classClickPower.ClickPowerUp:0.##}",
                 FontSize = 20
             };
 
@@ -74,7 +78,26 @@ namespace ClickerGame
 
         private void Upgrade_IncreaseClick(object sender, RoutedEventArgs e)
         {
-
+            if(classClicker.ClicksCurrency >= classClickPower.UpgradePrice)
+            {
+                classClicker.ClicksCurrency -= classClickPower.UpgradePrice;
+                classClickPower.UpgradeClicks();
+                TotalClickText.Text = classClicker.ClicksCurrency.ToString("0.##");
+          
+                if(classClickPower.UpgradeCountClicks >= 50)
+                {
+                    classClickPower.UpgradePrice += 150;
+                }
+                else if (classClickPower.UpgradeCountClicks >= 10)
+                {
+                    classClickPower.UpgradePrice += 50;
+                }
+                else
+                {
+                    classClickPower.UpgradePrice += 10;
+                }
+                UpgradeClickButton.Content = $"Upgrade: {classClickPower.UpgradePrice} Clicks";
+            }
         }
     }
 }
