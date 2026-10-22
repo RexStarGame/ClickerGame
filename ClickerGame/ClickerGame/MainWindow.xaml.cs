@@ -89,7 +89,7 @@ namespace ClickerGame
 
         private void Clicker_Area(object sender, RoutedEventArgs e)
         {
-            //game.Click();
+            
         }
 
         private void Powerup_AutoClickX2(object sender, RoutedEventArgs e)

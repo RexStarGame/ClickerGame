@@ -6,6 +6,7 @@ namespace ClickerGame
 {
     internal class AutoClickX2 : Powerups
     {
+        
         public AutoClickX2() : base(100)
         {
         }

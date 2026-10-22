@@ -48,13 +48,15 @@
     <Grid>
 
         <!-- Clicker Area -->
+        <Canvas x:Name="MovingTextCanvas" Width="200" Height="150" IsHitTestVisible="False"/>
+
+        <!-- Clicker Area -->
         <Button Content="Click"
                 Click="Clicker_Area"
                 Background="White"
                 BorderBrush="{x:Null}"
                 Focusable="False"
                 Style="{StaticResource ClickerButtonStyle}"/>
-        <Canvas x:Name="MovingTextCanvas" Width="200" Height="150" IsHitTestVisible="False"/>
 
         <!-- Currency -->
         <Border 
