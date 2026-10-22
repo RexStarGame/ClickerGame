@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+/*
 namespace ClickerGame
 {
     public class Game
@@ -36,3 +36,4 @@ namespace ClickerGame
         }
     }
 }
+*/
