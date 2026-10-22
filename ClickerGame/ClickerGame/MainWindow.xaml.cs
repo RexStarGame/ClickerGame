@@ -32,8 +32,9 @@ namespace ClickerGame
         private void Clicker_Button(object sender, RoutedEventArgs e)
         {
             classClicker.AddClicks(classClickPower.ClickPowerUp);
-            TotalClickText.Text = classClicker.ClicksCurrency.ToString();
-        private Game game = new Game();
+            TotalClicks.Text = classClicker.ClicksCurrency.ToString();
+        }
+
         private AutoClick autoClick = new AutoClick();
         private AutoClickX2 autoClickX2 = new AutoClickX2();
         private DispatcherTimer displayTimer = new DispatcherTimer();
