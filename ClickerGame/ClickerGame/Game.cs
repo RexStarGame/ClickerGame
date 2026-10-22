@@ -13,6 +13,7 @@ namespace ClickerGame
         {
             ClicksCurrency += 1 + extraPowerClicks;
         }
+       
     }
 }
 /*

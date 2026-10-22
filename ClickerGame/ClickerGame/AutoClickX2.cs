@@ -9,6 +9,7 @@ namespace ClickerGame
         
         public AutoClickX2() : base(100)
         {
+
         }
 
         // This method activates the AutoClickX2 powerup

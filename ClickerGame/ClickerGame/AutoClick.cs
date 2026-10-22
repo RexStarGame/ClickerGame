@@ -16,9 +16,10 @@ namespace ClickerGame
         {
         }
 
-        public void ActivateAutoClick()
+        public void ActivateAutoClick(ClassClicker classClicker)
         {
             MainWindow mainWindow = new MainWindow();
+            ClassClickPower classClickPower = new ClassClickPower();
             if (timer != null)
             {
                 return;
@@ -31,7 +32,7 @@ namespace ClickerGame
 
             timer.Tick += (sender, e) =>
             {
-                mainWindow.StartAutoClick();
+                classClicker.AddClicks(classClickPower.CurrentPowwerUp);  
             };
 
             timer.Start();
