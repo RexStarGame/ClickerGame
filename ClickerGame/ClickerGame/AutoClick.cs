@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows;
 using System.Windows.Threading;
 
 namespace ClickerGame
@@ -8,14 +10,15 @@ namespace ClickerGame
     internal class AutoClick : Upgrades
     {
         private DispatcherTimer timer;
-        public bool IsPurchased { get; private set; } = false; 
-
-        public AutoClick() : base(1200)
+        public bool IsPurchased { get; private set; } = false;
+       
+        public AutoClick() : base(10)
         {
         }
 
-        public void ActivateAutoClick(Game game)
+        public void ActivateAutoClick()
         {
+            MainWindow mainWindow = new MainWindow();
             if (timer != null)
             {
                 return;
@@ -28,7 +31,7 @@ namespace ClickerGame
 
             timer.Tick += (sender, e) =>
             {
-               // game.Click();
+                mainWindow.StartAutoClick();
             };
 
             timer.Start();

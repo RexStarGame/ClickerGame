@@ -12,7 +12,7 @@ namespace ClickerGame
         }
 
         // This method activates the AutoClickX2 powerup
-        public void ActivateAutoClickX2(Game game, AutoClick autoClick)
+        public void ActivateAutoClickX2(AutoClick autoClick)
         {
             autoClick.SetSpeed(0.5);
         }

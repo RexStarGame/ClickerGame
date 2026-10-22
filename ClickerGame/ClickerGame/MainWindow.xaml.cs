@@ -18,7 +18,7 @@ namespace ClickerGame
         ClassClicker classClicker = new ClassClicker(); // opretter et object af klassen ClassClicker
         ClassClickPower classClickPower = new ClassClickPower();
 
-        Random random = new Random();
+      
         CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         CancellationToken cancellationToken;
 
@@ -57,7 +57,7 @@ namespace ClickerGame
             };
         }
 
-        private void MovingText()
+        public void MovingText()
         {
             TextBlock earnedCurrencyText = new TextBlock
             {
@@ -78,8 +78,15 @@ namespace ClickerGame
 
             fade.Completed += (s, e) => MovingTextCanvas.Children.Remove(earnedCurrencyText);
         }
+        public void StartAutoClick()
+        {
+            classClicker.AddClicks(classClickPower.ClickPowerUp);
+            TotalClicks.Text = classClicker.ClicksCurrency.ToString();
 
-        private void Clicker_Area(object sender, RoutedEventArgs e)
+            MovingText();
+        }
+
+        public void Clicker_Area(object sender, RoutedEventArgs e)
         {
             classClicker.AddClicks(classClickPower.ClickPowerUp);
             TotalClicks.Text = classClicker.ClicksCurrency.ToString();
@@ -89,25 +96,23 @@ namespace ClickerGame
 
         private void Powerup_AutoClickX2(object sender, RoutedEventArgs e)
         {
-            if(classClicker.ClicksCurrency >= autoClickX2.PowerupCost) // ser om du råd til det.
-            {
-                classClicker.ClicksCurrency -= autoClickX2.PowerupCost;
-                /*
             if (!autoClick.IsPurchased)
             {
-                MessageBox.Show("You must buy AutoClick first!");
+                MessageBox.Show("You must buy AutoClick first!");        
             }
-            else if (!game.BuyPowerup(autoClickX2))
+            if (classClicker.ClicksCurrency <= autoClickX2.PowerupCost && autoClick.IsPurchased)
             {
                 MessageBox.Show("You don't have enough Clicks!");
             }
-            else
+            else if (classClicker.ClicksCurrency >= autoClickX2.PowerupCost && autoClick.IsPurchased) // ser om du råd til det.
             {
-                autoClickX2.ActivateAutoClickX2(game, autoClick);
+                classClicker.ClicksCurrency -= autoClickX2.PowerupCost;
+            }
+            else if (autoClick.IsPurchased)
+            {
+                autoClickX2.ActivateAutoClickX2(autoClick);
                 AutoClickX2Button.IsEnabled = false;
                 powerupTimer.Start();
-            }
-            */
             }
         }
 
@@ -118,17 +123,18 @@ namespace ClickerGame
 
         private void Upgrade_AutoClick(object sender, RoutedEventArgs e)
         {
-            /*
-            if (!game.BuyUpgrade(autoClick))
+           
+            if (classClicker.ClicksCurrency <= autoClick.UpgradeCost)
             {
                 MessageBox.Show("You don't have enough Clicks!");
+               
             }
-            else
+            else if (classClicker.ClicksCurrency >= autoClick.UpgradeCost)
             {
-                autoClick.ActivateAutoClick(game);
+                classClicker.ClicksCurrency -= autoClick.UpgradeCost;
+                autoClick.ActivateAutoClick();
                 AutoClickButton.IsEnabled = false;
             }
-            */
         }
 
         private void Upgrade_IncreaseClick(object sender, RoutedEventArgs e)
