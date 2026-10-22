@@ -15,6 +15,109 @@
         <TextBlock x:Name="TotalClickText" TextWrapping="Wrap" Text="TextBlock" Margin="300,30,300,355"/>
         <Canvas x:Name="MovingTextCanvas" Width="200" Height="150" IsHitTestVisible="False"/>
         
+        Title="Clicker Game"
+        Height="450"
+        Width="800"
+        MinHeight="350"
+        MinWidth="600">
 
+    <Window.Resources>
+        <Style x:Key="ClickerButtonStyle"
+               TargetType="Button">
+
+            <Setter Property="FocusVisualStyle"
+                    Value="{x:Null}"/>
+
+            <Setter Property="Background"
+                    Value="Transparent"/>
+
+            <Setter Property="BorderThickness"
+                    Value="0"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+
+                        <Border Background="{TemplateBinding Background}"
+                                BorderThickness="0">
+
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+
+        <!-- Clicker Area -->
+        <Button Content="Click"
+                Click="Clicker_Area"
+                Background="White"
+                BorderBrush="{x:Null}"
+                Focusable="False"
+                Style="{StaticResource ClickerButtonStyle}"/>
+
+        <!-- Currency -->
+        <Border 
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top"
+        Margin="0,20,0,0"
+        Padding="20,8"
+        Width="150"
+        Background="White"
+        BorderBrush="Black"
+        BorderThickness="0.5"
+        CornerRadius="10">
+
+            <TextBlock x:Name="TotalClicks"
+                       FontSize="19"
+                       FontWeight="Normal"
+                       TextAlignment="Center"
+                       IsHitTestVisible="False"/>
+
+        </Border>
+
+        <!-- Powerups and Upgrades -->
+        <StackPanel HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Width="180"
+                    Margin="0,0,20,0">
+
+            <Button x:Name="AutoClickX2Button"
+                    Content="Powerup AutoClickX2"
+                    Height="50"
+                    Margin="0,0,0,20"
+                    Focusable="False"
+                    Click="Powerup_AutoClickX2"/>
+
+            <Button Content="Powerup Double Click"
+                    Height="50"
+                    Margin="0,0,0,20"
+                    Focusable="False"
+                    Click="Powerup_DoubleClick"/>
+
+            <Button x:Name="AutoClickButton"
+                    Content="Upgrade AutoClick"
+                    Height="50"
+                    Margin="0,0,0,20"
+                    Focusable="False"
+                    Click="Upgrade_AutoClick"/>
+
+            <Button Content="Upgrade IncreaseClick"
+                    Height="50"
+                    Focusable="False"
+                    Click="Upgrade_IncreaseClick"/>
+
+        </StackPanel>
+        
     </Grid>
+
 </Window>
