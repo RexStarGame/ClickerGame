@@ -78,13 +78,6 @@ namespace ClickerGame
 
             fade.Completed += (s, e) => MovingTextCanvas.Children.Remove(earnedCurrencyText);
         }
-        public void StartAutoClick()
-        {
-            classClicker.AddClicks(classClickPower.ClickPowerUp);
-            TotalClicks.Text = classClicker.ClicksCurrency.ToString();
-
-            MovingText();
-        }
 
         public void Clicker_Area(object sender, RoutedEventArgs e)
         {

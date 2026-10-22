@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Threading;
 
 namespace ClickerGame
@@ -18,7 +20,8 @@ namespace ClickerGame
 
         public void ActivateAutoClick()
         {
-            MainWindow mainWindow = new MainWindow();
+            ClassClicker classClicker = new ClassClicker();
+
             if (timer != null)
             {
                 return;
@@ -31,7 +34,9 @@ namespace ClickerGame
 
             timer.Tick += (sender, e) =>
             {
-                mainWindow.StartAutoClick();
+                
+                
+                
             };
 
             timer.Start();
