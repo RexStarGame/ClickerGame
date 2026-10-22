@@ -125,7 +125,7 @@ namespace ClickerGame
             else if (classClicker.ClicksCurrency >= autoClick.UpgradeCost)
             {
                 classClicker.ClicksCurrency -= autoClick.UpgradeCost;
-                autoClick.ActivateAutoClick(classClicker);
+                autoClick.ActivateAutoClick(classClicker, classClickPower);
                 AutoClickButton.IsEnabled = false;
             }
         }
