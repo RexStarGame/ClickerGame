@@ -48,11 +48,7 @@
     <Grid>
 
         <!-- Clicker Area -->
-        <Canvas x:Name="MovingTextCanvas" Width="200" Height="150" IsHitTestVisible="False"/>
-
-        <!-- Clicker Area -->
-        <Button Content="Click"
-                Click="Clicker_Area"
+        <Button Click="Clicker_Area"
                 Background="White"
                 BorderBrush="{x:Null}"
                 Focusable="False"
@@ -112,6 +108,9 @@
 
 
         </StackPanel>
+        <Canvas x:Name="MovingTextCanvas" Width="200" Height="150" IsHitTestVisible="False">
+            <Image Height="250" Canvas.Left="33" Width="200" Source="/cursor-png-1113.png" HorizontalAlignment="Left" Canvas.Top="-50" VerticalAlignment="Top"/>
+        </Canvas>
 
     </Grid>
 

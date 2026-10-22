@@ -28,12 +28,6 @@ namespace ClickerGame
         private DispatcherTimer displayTimer = new DispatcherTimer();
         private DispatcherTimer powerupTimer = new DispatcherTimer();
 
-        private void Clicker_Button(object sender, RoutedEventArgs e)
-        {
-            classClicker.AddClicks(classClickPower.ClickPowerUp);
-            TotalClicks.Text = classClicker.ClicksCurrency.ToString();
-        }
-
         public MainWindow()
         {
             InitializeComponent();
@@ -61,8 +55,6 @@ namespace ClickerGame
                 AutoClickX2Button.IsEnabled = true;
                 powerupTimer.Stop();
             };
-
-            MovingText();
         }
 
         private void MovingText()
@@ -89,7 +81,10 @@ namespace ClickerGame
 
         private void Clicker_Area(object sender, RoutedEventArgs e)
         {
-            
+            classClicker.AddClicks(classClickPower.ClickPowerUp);
+            TotalClicks.Text = classClicker.ClicksCurrency.ToString();
+
+            MovingText();
         }
 
         private void Powerup_AutoClickX2(object sender, RoutedEventArgs e)
