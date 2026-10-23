@@ -146,7 +146,7 @@ namespace ClickerGame
                 }
             UpgradeClickButton.Content = $"Upgrade: Increase Clicks\nPrice: {classClickPower.UpgradePrice.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("da-DK"))} Clicks";
 
-                // kunne bruge en switch expression istedet til dette vis det skulle se pænere ud.. men  jeg skal lige læse lidt videre på det.
+                // kunne bruge en switch expression istedet til dette vis det skulle se pænere ud..
             }
         }
     }
