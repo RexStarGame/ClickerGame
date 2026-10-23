@@ -11,13 +11,16 @@ namespace ClickerGame
 {
     internal class AutoClick : Upgrades
     {
+        // DispatcherTimer to handle auto-clicking
         private DispatcherTimer timer;
+        // Property to indicate whether the auto-click upgrade has been purchased
         public bool IsPurchased { get; private set; } = false;
-       
+        // Constructor to initialize the auto-click upgrade with a cost of 1200
         public AutoClick() : base(1200)
         {
-        }
 
+        }
+        // Method to activate auto-clicking
         public void ActivateAutoClick(ClassClicker classClicker, ClassClickPower classClickPower)
         {
             if (timer != null)
@@ -37,7 +40,7 @@ namespace ClickerGame
 
             timer.Start();
         }
-
+        // Method to set the speed of auto-clicking
         public void SetSpeed(double seconds)
         {
             if (timer == null)
