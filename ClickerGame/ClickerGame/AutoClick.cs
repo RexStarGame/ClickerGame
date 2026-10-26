@@ -21,7 +21,7 @@ namespace ClickerGame
 
         }
         // Method to activate auto-clicking
-        public void ActivateAutoClick(ClassClicker classClicker, ClassClickPower classClickPower)
+        public void ActivateAutoClick(ClassClicker classClicker, ClassClickPower classClickPower, Action onAutoClick)
         {
             if (timer != null)
             {
@@ -35,7 +35,8 @@ namespace ClickerGame
 
             timer.Tick += (sender, e) =>
             {
-                classClicker.AddClicks(classClickPower.ClickPowerUp);  
+                classClicker.AddClicks(classClickPower.ClickPowerUp);
+                onAutoClick();
             };
 
             timer.Start();
